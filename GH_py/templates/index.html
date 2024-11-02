@@ -50,7 +50,8 @@
         </form>
 
         <div data = {{ json }}>
-
+        
+        <div/>
 
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
@@ -61,8 +62,7 @@
                 </ul>
             {% endif %}
         {% endwith %}
-    
-        <img src= {{ image }} alt="DALLEimage">
+
     </div>
 
         <div class="footer">
