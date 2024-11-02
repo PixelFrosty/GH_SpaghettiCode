@@ -26,7 +26,7 @@ def home():
         inputCountry = form.name.data
         flash(openAItest(inputCountry))
         return redirect(url_for('home'))
-    return render_template('base.html', form=form)
+    return render_template('index.html', form=form)
 
 @app.route('/flights', methods=['GET', 'POST'])
 def flights():
