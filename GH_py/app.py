@@ -5,6 +5,7 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 import openai
 import os
+import json
 
 
 openai.api_key = os.getenv("OPENAI_API_KEY")  # If using an environment variable
@@ -26,9 +27,16 @@ def home():
     if form.validate_on_submit():
         inputCountry = form.name.data
         flash(openAItest(inputCountry))
-        json = openAIJSON(inputCountry)
-        flash(json)
-        return render_template('index.html', form=form, JSON = json)
+        statDict = openAIemojis(inputCountry)
+        flash("Food: " + statDict["favorite_food"])
+        flash("Rating: " + statDict["rating"])
+        flash("Language: " + statDict["main_language"])
+        flash("Activities: " + statDict["activities"])
+        return render_template('index.html', form=form, food=statDict["favorite_food"],
+                               rating=statDict["rating"],
+                               lang=statDict["main_language"],
+                               activites=statDict["activities"])
+
     return render_template('index.html', form=form,)
 
 @app.route('/flights', methods=['GET', 'POST'])
@@ -59,21 +67,27 @@ def openAIJSON(prompt):
     )
     return response.choices[0].message['content']
 
-def openAIimage(prompt):
-    try:
-        response = openai.Image.create(
-            prompt=prompt,
-            n=1,  # Number of images to generate
-            size="256x256"  # Specify the size of the image
-        )
+def openAIemojis(prompt):
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",  # or another model
+        messages=[{"role": "user", "content":
+            "Put the following in a JSON format. For the country/location of " + prompt + "respond with its \'favorite_food\' (followed by an emoji), "
+                                            "its \'main_language\' (followed by a flag emoji), "
+                                            "\'rating\'(followed by 1 to 5 star emojis,"
+                                            "and \'activites\'(followed by emojis)"}], temperature=0,
+        max_tokens=200
+    )
+    rsp = response.choices[0].message['content']
 
-        # Get the URL of the generated image
-        image_url = response['data'][0]['url']
-        return image_url
+    # Convert JSON string to dictionary
+    data = json.loads(rsp.lower())
 
-    except Exception as e:
-        print(f"An error occurred: {e}")
-        return None
+    # Print the dictionary
+    #print(rsp)
+    #print(data["favorite_food"])
+    #expected values: [favorite food], ["main_language"] ["rating"] ["activities"]
+    return data
+
 
 if __name__ == '__main__':
     app.run(debug=True)
