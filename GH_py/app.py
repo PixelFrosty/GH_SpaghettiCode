@@ -8,7 +8,7 @@ import os
 import json
 
 
-openai.api_key = os.getenv("OPENAI_API_KEY")  # If using an environment variable
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
 
@@ -31,7 +31,10 @@ def explore():
     if form.validate_on_submit():
         inputCountry = form.name.data
         flash(openAItest(inputCountry))
-        statDict = openAIemojis(inputCountry)
+        try:
+            statDict = openAIemojis(inputCountry)
+        except:
+            flash("Error genreating fun facts.")
         try:
             flash("Food: " + statDict["favorite_food"])
         except KeyError:
