@@ -8,7 +8,7 @@ import os
 import json
 
 
-openai.api_key = os.getenv("OPENAI_API_KEY")  # If using an environment variable
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
 
@@ -20,24 +20,44 @@ class InputForm(FlaskForm):
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Needed for flashing messages
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def home():
+    return render_template('index.html',)
+
+@app.route('/explore', methods=['GET', 'POST'])
+def explore():
     form = InputForm()
     inputCountry = ""
     if form.validate_on_submit():
         inputCountry = form.name.data
         flash(openAItest(inputCountry))
-        statDict = openAIemojis(inputCountry)
-        flash("Food: " + statDict["favorite_food"])
-        flash("Rating: " + statDict["rating"])
-        flash("Language: " + statDict["main_language"])
-        flash("Activities: " + statDict["activities"])
-        return render_template('index.html', form=form, food=statDict["favorite_food"],
-                               rating=statDict["rating"],
-                               lang=statDict["main_language"],
-                               activites=statDict["activities"])
+        try:
+            statDict = openAIemojis(inputCountry)
+        except:
+            flash("Error genreating fun facts.")
+        try:
+            flash("Food: " + statDict["favorite_food"])
+        except KeyError:
+            flash("Error generating favorite food.")
+        try:
+            flash("Rating: " + statDict["rating"])
+        except KeyError:
+            flash("Error generating rating.")
+        try:
+            flash("Language: " + statDict["main_language"])
+        except KeyError:
+            flash("Error generating language statistic.")
+        try:
+            flash("Activities: " + statDict["activities"])
+        except KeyError:
+            flash("Error generating activities.")
 
-    return render_template('index.html', form=form,)
+        return render_template('explore.html', form=form)
+
+    return render_template('explore.html', form=form, )
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 @app.route('/flights', methods=['GET', 'POST'])
 def flights():
@@ -78,14 +98,7 @@ def openAIemojis(prompt):
         max_tokens=200
     )
     rsp = response.choices[0].message['content']
-
-    # Convert JSON string to dictionary
     data = json.loads(rsp.lower())
-
-    # Print the dictionary
-    #print(rsp)
-    #print(data["favorite_food"])
-    #expected values: [favorite food], ["main_language"] ["rating"] ["activities"]
     return data
 
 

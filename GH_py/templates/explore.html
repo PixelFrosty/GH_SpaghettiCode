@@ -25,20 +25,34 @@
                 <a href={{ url_for("about") }}>About</a>
             </div>
         </div>
-
         <div class="content">
-            <h2>Discover a World Beyond Borders</h2>
-            <p>Find your next journey today.</p>
-            <a href={{ url_for("explore") }}>
-                <button class="button">Explore</button>
-            </a>
-        </div>
+        <h1>Where do you want to travel?</h1>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <div>
+                {{ form.name(size=32) }}<br>
+                {% for error in form.name.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div>
+                {{ form.submit() }}
+            </div>
+        </form>
 
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                    <br/>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
         <div class="footer">
             <p>&copy; 2021 My Website. All rights reserved.</p>
         </div>
     </div>
-
-</body>
 
 </html>
