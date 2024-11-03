@@ -37,7 +37,7 @@
 }
 
 .uppertext {
-    font-size: 4em;
+    font-size: 5em;
     transition: font-size 0.75s ease, transform 0.75s ease;
     transform: translateY(0);
 }
@@ -48,6 +48,7 @@
 
 .mem {
     transform: translateY(0);
+    opacity: 0;
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
