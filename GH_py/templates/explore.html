@@ -17,7 +17,7 @@
     <li class="container">
         <div class="navbar">
             <div class="header">
-                <a href={{ url_for("home") }}>Travel Guide</a>
+                <a href={{ url_for("home") }}>Travel Buddy</a>
             </div>
             <div class="links">
                 <a href={{ url_for("home") }}> Home</a>
@@ -26,8 +26,8 @@
             </div>
         </div>
 
-        <ul class="container">
-            <li class="content">
+        <div class="container">
+            <div class="content">
                 <h1>Where do you want to travel?</h1>
                 <br/>
                 <form class= "fancy-form" method="POST">
@@ -41,7 +41,7 @@
                     <div>
                         {{ form.submit(class="form-button") }}
                     </div>
-                </form class="form">
+                </form>
                 {% with messages = get_flashed_messages(with_categories=True) %}
                   {% if messages %}
                     <ul class = "flash">
@@ -52,13 +52,13 @@
                     </ul>
                   {% endif %}     
                 {% endwith %}
-            </li>
+            </div>
             <li class="bottompad">
             </li>
             <div class="footer">
                 <p>&copy; 2024 My Website. All rights reserved.</p>
             </div>
-        </ul>
+        </div>
     </li>
 
 </body>
