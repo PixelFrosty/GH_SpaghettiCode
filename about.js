@@ -14,16 +14,16 @@ window.addEventListener('scroll', (event) => {
     text.style.fontSize = `${newSizeText}rem`;
     text.style.transform = `translateY(-${newPosText}px)`;
     members.forEach((member, index) => {
-        const delay = index*100;
+        const delay = index * 100;
 
         setTimeout(() => {
 
-        const newPosMem = (182-scrollY)-150;
-        const newOpMem = Math.min((scrollY/183)*1.5 - 0.5,1);
+            const newPosMem = (182 - scrollY) - 150;
+            const newOpMem = Math.min((scrollY / 183) * 1.5 - 0.5, 1);
 
-        member.style.transform = `translateY(${newPosMem}px)`; // Bring it into view
-        member.style.opacity = `${newOpMem}`;
-            
+            member.style.transform = `translateY(${newPosMem}px)`; // Bring it into view
+            member.style.opacity = `${newOpMem}`;
+
         }, delay);
     });
 

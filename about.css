@@ -42,7 +42,7 @@
     transform: translateY(0);
 }
 
-.members ul{
+.members ul {
     text-align: center;
 }
 
@@ -52,7 +52,7 @@
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.members li{
+.members li {
     display: inline-block;
     width: 215px;
     min-height: 200px;
@@ -68,20 +68,28 @@
 }
 
 .circle-image {
-    width:  125px; /* Set the desired width and height */
-    height: 125px; /* Same as width for a perfect circle */
-    border-radius: 50%; /* Makes the div circular */
-    overflow: hidden; /* Ensures the image stays within the circle */
-    display: flex; /* Center the image */
+    width: 125px;
+    /* Set the desired width and height */
+    height: 125px;
+    /* Same as width for a perfect circle */
+    border-radius: 50%;
+    /* Makes the div circular */
+    overflow: hidden;
+    /* Ensures the image stays within the circle */
+    display: flex;
+    /* Center the image */
     margin-inline: auto;
     margin-bottom: 20px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
 }
 
 .circle-image img {
-    width: 100%; /* Adjust the image size to cover the container */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: cover; /* Ensures the image covers the circle */
+    width: 100%;
+    /* Adjust the image size to cover the container */
+    height: auto;
+    /* Maintain aspect ratio */
+    object-fit: cover;
+    /* Ensures the image covers the circle */
 }
 
 
