@@ -24,6 +24,11 @@
     padding: 0;
 }
 
+.whereTravel {
+    text-align: center;
+    margin-right: 20%;
+}
+
 button {
     width: 150px;
     height: 30px;
@@ -172,7 +177,7 @@ button:hover {
     max-width: 1200px; /* Limit the maximum width */
     margin: 0 auto;   /* Center the container */
     margin-right: 60%;
-    background-color: rgba(255, 255, 255, 0.5); /* White with some transparency */
+    background-color: rgba(0, 0, 0, 0.5); /* White with some transparency */
     padding: 10px;
     border-radius: 5px; /* Rounded corners */
 }
@@ -180,12 +185,13 @@ button:hover {
 
 .fancy-form {
     margin-inline: auto;
+    margin-right: 765px;
     max-width: 300px; /* Limit the width */
     padding: 10px;
-    border: 1px solid #ccc; /* Border for the form */
     border-radius: 5px; /* Rounded corners */
-    background-color: #f9f9f9; /* Light background */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    background-color: #555555; /* Light background */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5); /* Soft shadow */
+    margin-bottom: 25px;
 }
 
 .fancy-form input,
@@ -193,7 +199,6 @@ button:hover {
     width: 100%; /* Full width inputs */
     padding: 10px; /* Inner spacing */
     margin-bottom: 15px; /* Space below inputs */
-    border: 1px solid #ccc; /* Border style */
     border-radius: 5px; /* Rounded corners */
     font-size: 16px; /* Font size */
     transition: border-color 0.3s; /* Smooth border color change */
