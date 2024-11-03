@@ -7,13 +7,14 @@
 .homepage {
     margin: 0px;
     display: flex;
-    height: 120vh;
+    height: 125vh;
     width: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/background.webp');
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/trees.webp');
     background-repeat: no-repeat;
     background-size: 100%;
     background-size: cover;
     overflow: scroll;
+    overflow-x: hidden;
     font-family: "Montserrat", sans-serif;
 }
 
@@ -37,9 +38,51 @@
 
 .uppertext {
     font-size: 4em;
-    transition: font-size 0.3s ease, transform 0.3s ease;
+    transition: font-size 0.75s ease, transform 0.75s ease;
     transform: translateY(0);
 }
+
+.members ul{
+    text-align: center;
+}
+
+.mem {
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.members li{
+    display: inline-block;
+    width: 215px;
+    min-height: 200px;
+    margin: 50px;
+    border-radius: 20px;
+    text-align: center;
+    vertical-align: top;
+    justify-content: center;
+    background: #ffffff;
+    color: #000;
+    padding: 25px;
+    box-shadow: 15px 15px 10px rgba(0, 0, 0, 0.5);
+}
+
+.circle-image {
+    width:  125px; /* Set the desired width and height */
+    height: 125px; /* Same as width for a perfect circle */
+    border-radius: 50%; /* Makes the div circular */
+    overflow: hidden; /* Ensures the image stays within the circle */
+    display: flex; /* Center the image */
+    margin-inline: auto;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+}
+
+.circle-image img {
+    width: 100%; /* Adjust the image size to cover the container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensures the image covers the circle */
+}
+
 
 button {
     width: 150px;
