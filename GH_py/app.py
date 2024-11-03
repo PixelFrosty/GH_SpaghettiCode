@@ -52,9 +52,9 @@ def explore():
         except KeyError:
             flash("Error generating activities.")
 
-        return render_template('explore.html', form=form)
+        return render_template('explore.html', form=form, )
 
-    return render_template('explore.html', form=form, )
+    return render_template('explore.html', form=form,)
 @app.route('/about')
 def about():
     return render_template('about.html')
