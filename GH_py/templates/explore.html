@@ -27,7 +27,7 @@
         </div>
 
         <ul class="container">
-            <li class = "content">
+            <li class="content">
                 <h1>Where do you want to travel?</h1>
                 <br/>
                 <form class= "fancy-form" method="POST">
@@ -35,14 +35,13 @@
                     <div class="form-textarea">
                         {{ form.name(size=32) }}<br>
                         {% for error in form.name.errors %}
-                            <span style="color: red;">[{{ error }}]</span>
+                        <span style="color: red;">[{{ error }}]</span>
                         {% endfor %}
                     </div>
                     <div>
                         {{ form.submit(class="form-button") }}
                     </div>
-                </form>
-
+                </form class="form">
                 {% with messages = get_flashed_messages(with_categories=True) %}
                   {% if messages %}
                     <ul class = "flash">
@@ -51,16 +50,17 @@
                           <br/>
                       {% endfor %}
                     </ul>
-                  {% endif %}
+                  {% endif %}     
                 {% endwith %}
             </li>
             <li class="bottompad">
-
             </li>
             <div class="footer">
                 <p>&copy; 2024 My Website. All rights reserved.</p>
             </div>
         </ul>
     </li>
+
 </body>
+
 </html>

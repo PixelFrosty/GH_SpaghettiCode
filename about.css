@@ -7,13 +7,14 @@
 .homepage {
     margin: 0px;
     display: flex;
-    height: 100vh;
+    height: 125vh;
     width: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/background.webp');
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/trees.webp');
     background-repeat: no-repeat;
     background-size: 100%;
     background-size: cover;
-    overflow: hidden;
+    overflow: scroll;
+    overflow-x: hidden;
     font-family: "Montserrat", sans-serif;
 }
 
@@ -26,6 +27,63 @@
     height: 0;
     padding: 0;
 }
+
+.textcon {
+    position: relative;
+    display: flex;
+    margin: 10%;
+    justify-content: center;
+    align-items: center;
+}
+
+.uppertext {
+    font-size: 5em;
+    transition: font-size 0.75s ease, transform 0.75s ease;
+    transform: translateY(0);
+}
+
+.members ul{
+    text-align: center;
+}
+
+.mem {
+    transform: translateY(0);
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.members li{
+    display: inline-block;
+    width: 215px;
+    min-height: 200px;
+    margin: 50px;
+    border-radius: 20px;
+    text-align: center;
+    vertical-align: top;
+    justify-content: center;
+    background: #ffffff;
+    color: #000;
+    padding: 25px;
+    box-shadow: 15px 15px 10px rgba(0, 0, 0, 0.5);
+}
+
+.circle-image {
+    width:  125px; /* Set the desired width and height */
+    height: 125px; /* Same as width for a perfect circle */
+    border-radius: 50%; /* Makes the div circular */
+    overflow: hidden; /* Ensures the image stays within the circle */
+    display: flex; /* Center the image */
+    margin-inline: auto;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+}
+
+.circle-image img {
+    width: 100%; /* Adjust the image size to cover the container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensures the image covers the circle */
+}
+
 
 button {
     width: 150px;
@@ -114,7 +172,6 @@ button:hover {
     color: #ddd;
 }
 
-
 .content {
     display: flex;
     flex-direction: column;
@@ -127,42 +184,6 @@ button:hover {
     font-size: 50px;
     margin-bottom: 20px;
     width: 50%;
-}
-
-
-
-
-.search-bar {
-    display: flex;
-    margin: 20px;
-    justify-content: center;
-}
-
-.search-bar input[type="text"] {
-    padding: 8px;
-    font-size: 16px;
-    width: 200px;
-    border: 1px solid #ccc;
-}
-
-.search-bar button {
-    padding: 8px 16px;
-    font-size: 16px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
-
-.search-bar button:hover {
-    background-color: #555;
-}
-
-.form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: 10% 130px;
 }
 
 .footer {
