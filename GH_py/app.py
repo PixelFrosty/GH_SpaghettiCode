@@ -34,7 +34,12 @@ def explore():
         try:
             statDict = openAIemojis(inputCountry)
         except:
-            flash("Error genreating fun facts.")
+            statDict = {"favorite_food": "None",
+                    "rating": "None",
+                    "main_language": "None",
+                    "activities": "None"
+                    }
+            #flash("Error genreating fun facts.")
         try:
             flash("Food: " + statDict["favorite_food"])
         except KeyError:

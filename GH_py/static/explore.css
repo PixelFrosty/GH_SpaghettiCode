@@ -1,0 +1,218 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.homepage {
+    margin: 0;
+    height: 150vh;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/bruges.jpg');
+    background-size: cover;
+    overflow-x: hidden;
+    font-family: "Montserrat", sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    color: white;
+
+    padding: 0;
+}
+
+button {
+    width: 150px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: rgb(255, 123, 0);
+    font-size: 1.2em;
+    font-weight: 550;
+    padding: 10px 15px;
+    margin-top: 15px;
+    color: white;
+}
+
+button:hover {
+    background: white;
+    color: black;
+    font-size: 1.5em;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 130px;
+}
+
+.navbar .header a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 30px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.navbar .header a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.3s ease;
+}
+
+.navbar .header a:hover::after {
+    width: 100%;
+}
+
+
+.navbar .links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 25px;
+    font-size: 23px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.navbar .links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.3s ease;
+}
+
+.navbar .links a:hover::after {
+    width: 100%;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 18px;
+}
+
+.navbar a:hover {
+    color: #ddd;
+}
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 50px;
+    margin-right: 130px;
+    margin-left: 130px;
+}
+
+.content h2 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    width: 50%;
+}
+
+
+
+
+.search-bar {
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+}
+
+.search-bar input[type="text"] {
+    padding: 8px;
+    font-size: 16px;
+    width: 200px;
+    border: 1px solid #ccc;
+}
+
+.search-bar button {
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #555;
+}
+
+.footer {
+    text-align: right;
+    padding: 10px;
+    margin-top: 50px;
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(51, 51, 51, 0.0), rgba(51, 51, 51, 0.8));
+}
+
+.flash {
+    width: 100%;      /* Use full width of the viewport */
+    max-width: 1200px; /* Limit the maximum width */
+    margin: 0 auto;   /* Center the container */
+    margin-right: 60%;
+    background-color: rgba(255, 255, 255, 0.5); /* White with some transparency */
+    padding: 10px;
+    border-radius: 5px; /* Rounded corners */
+}
+
+
+.fancy-form {
+    max-width: 300px; /* Limit the width */
+    padding: 10px;
+    border: 1px solid #ccc; /* Border for the form */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.fancy-form input,
+.form-textarea {
+    width: 100%; /* Full width inputs */
+    padding: 10px; /* Inner spacing */
+    margin-bottom: 15px; /* Space below inputs */
+    border: 1px solid #ccc; /* Border style */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    transition: border-color 0.3s; /* Smooth border color change */
+}
+
+.fancy-form input:focus,
+.fancy-form textarea:focus {
+    border-color: #007BFF; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+.form-button {
+    background-color: rgb(255, 123, 0); /* Button color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.bottompad {
+    height: 50px
+}
